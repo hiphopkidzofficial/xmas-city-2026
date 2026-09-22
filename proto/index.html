@@ -656,10 +656,10 @@ saleTick();setInterval(saleTick,250);
 
 </script>
 <script>
-(()=>{const C=[['xmas','embed=1','normal','12/26–27','國語作業簿 台北歡樂耶誕城','台北大佳河濱公園'],['final','capture=1','dark','12/25（五）','DJ 大賽總決賽','台北大佳河濱公園']];
+(()=>{const C=[['../card/index','embed=1','normal','12/26–27','國語作業簿 台北歡樂耶誕城','台北大佳河濱公園']];
 const $=i=>document.getElementById(i),f=$('showF'),fr=$('frame'),d=$('dots'),L=C.length;let n=-1,t=0;
-const th=k=>'../cards/th_'+C[(k+L)%L][0]+'.webp';
-const put=()=>{const c=C[n];f.style.colorScheme=c[2];f.title='卡片秀：'+c[3]+' '+c[4];f.src='../cards/'+c[0]+'.html?'+c[1];$('sideL').src=th(n-1);$('sideR').src=th(n+1);$('refl').src=th(n);{const cn=$('cname');cn.textContent='';[['b',c[3]],['span',c[4]],['small',c[5]]].forEach(([t,v])=>{const e=document.createElement(t);e.textContent=v;cn.appendChild(e)});}[...d.children].forEach((e,k)=>e.classList.toggle('on',k===n))};
+const th=k=>'../cards/th_xmas.webp';
+const put=()=>{const c=C[n];f.style.colorScheme=c[2];f.title='卡片秀：'+c[3]+' '+c[4];f.src=(c[0].startsWith('../')?c[0]:'../cards/'+c[0])+'.html?'+c[1];$('sideL').src=th(n-1);$('sideR').src=th(n+1);$('refl').src=th(n);if(L<2){['arL','arR','dots'].forEach(i=>$(i).style.display='none');$('sideL').style.display=$('sideR').style.display='none'}{const cn=$('cname');cn.textContent='';[['b',c[3]],['span',c[4]],['small',c[5]]].forEach(([t,v])=>{const e=document.createElement(t);e.textContent=v;cn.appendChild(e)});}[...d.children].forEach((e,k)=>e.classList.toggle('on',k===n))};
 let busy=false;const fly=$('fly'),sL=$('sideL'),sR=$('sideR'),RM=matchMedia('(prefers-reduced-motion: reduce)');
 // 物理感換卡：阻尼彈簧（有過衝、回彈、落定），退場的卡沿弧線滑到側邊「變成」側卡，進場的卡從側邊甩進中央
 const OFF=()=>Math.min(innerHeight*.40,innerWidth*.19),SS=.56,RY=38;
