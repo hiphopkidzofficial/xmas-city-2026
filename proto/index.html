@@ -362,20 +362,6 @@ body[data-lay=c] #s1 .panel:before,body[data-lay=c] #s1 .panel:after{display:non
 #s1 .flr{background:linear-gradient(180deg,#0000 0,#00000080 45%,#000000b3 100%);border-top:1px solid #ffffff1f}
 #s1 .rays{display:none}
 #s1 .frame{filter:drop-shadow(0 22px 28px #000000cc)}
-/* 音樂點放機（取代跑馬燈位置，不佔卡片高度） */
-#s1 .jb{position:absolute;left:0;right:0;bottom:0;z-index:8;display:flex;align-items:center;gap:14px;height:46px;padding:0 18px calc(env(safe-area-inset-bottom,0px));background:linear-gradient(#0a3f26f2,#062a19fa);border-top:1px solid #ffd75aaa;color:#fff8ec;font-family:"Noto Sans TC",sans-serif}
-#s1 .jv{flex:none;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,#ffd75a 0 14%,#d41f3a 15% 34%,#111 35% 100%);box-shadow:0 0 0 1px #000,inset 0 0 0 5px #1c1c1c,inset 0 0 0 6px #333;animation:rays 3s linear infinite paused}
-#s1 .jb.on .jv{animation-play-state:running}
-#s1 .jn{display:grid;gap:2px;min-width:0;flex:0 1 300px}#s1 .jn b{font-size:13px;font-weight:900;letter-spacing:.1em;color:#ffd75a;white-space:nowrap}#s1 .jn small{font-size:11.5px;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#s1 .jc{display:flex;gap:6px;flex:none}
-#s1 .jb button{cursor:pointer;font:inherit;border:1px solid #ffd75a88;background:#ffffff14;color:#fff8ec;border-radius:6px;height:30px;min-width:30px;padding:0 8px;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
-#s1 .jb button:hover{background:#ffd75a;color:#2a1203}#s1 .jb button:focus-visible{outline:2px solid #fff;outline-offset:2px}
-#s1 .jb .pl{min-width:40px;background:#d41f3a;border-color:#ffd75a}
-#s1 .jl{display:flex;gap:4px;flex:none}#s1 .jl button[aria-current=true]{background:#ffd75a;color:#2a1203}
-#s1 .jbar{flex:1 1 60px;min-width:40px;height:4px;background:#ffffff2e;border-radius:2px;overflow:hidden}#s1 .jbar i{display:block;height:100%;width:0;background:#ffd75a}
-#s1 .hd{padding-bottom:54px!important}
-@media (max-width:860px){#s1 .jb{height:auto;flex-wrap:wrap;gap:8px 10px;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}#s1 .jn{flex:1 1 150px}#s1 .jl{order:5;flex:1 1 100%;justify-content:space-between}#s1 .jl button{min-width:0;flex:1;padding:0}#s1 .jbar{order:6;flex-basis:100%}#s1 .hd{padding-bottom:130px!important}}
-@media (prefers-reduced-motion:reduce){#s1 .jv{animation:none}}
 /* 背景再壓暗、前方資訊放大 */
 #s1 .bgv{filter:brightness(.55) contrast(1.05) saturate(1.05)}
 #s1 .bgt{background:radial-gradient(ellipse 85% 90% at 50% 45%,#00000059,#000000a6)}
@@ -390,7 +376,6 @@ body[data-lay=c] #s1 .lc,body[data-lay=c] #s1 .rc{padding:2.6vh 22px;gap:2.2vh}
 @media (max-width:860px){body[data-lay=c] #s1 .hd{padding-left:16px;padding-right:16px}}
 /* 跑馬燈：貼在點放機上緣的一條紅色色帶，當作邊框 */
 #s1 .ticker{display:block;left:0;right:0;bottom:46px;z-index:8;transform:none;height:24px;padding:0;line-height:24px;font:700 12px/24px "Noto Sans TC",sans-serif;letter-spacing:.2em;color:#fff8ec;background:linear-gradient(#d41f3a,#a30f26);border:0;border-top:1px solid #ffd75a;border-bottom:1px solid #ffd75a;white-space:nowrap;overflow:hidden}
-#s1 .jb{border-top:0}
 #s1 .hd{padding-bottom:78px!important}
 @media (max-width:860px){#s1 .ticker{position:static;order:9}#s1 .hd{padding-bottom:150px!important}}
 /* 遊戲預告鈕：卡片下方正中，左邊播真實遊戲畫面 */
@@ -447,8 +432,6 @@ body.onsale #s1 .onsl small{background:linear-gradient(100deg,#58ff4a,#1d9a2f);c
  #s1 .tile b{font-size:40px}#s1 .onsl b{font-size:34px}#s1 .days b{font-size:22px}#s1 .days span{font-size:16px}
  #s1 .cred{position:static!important;order:9;width:100%;max-width:480px;flex-direction:column;align-items:flex-start;gap:2px;padding:0;background:none;font-size:11px}
  #s1 .ticker{position:fixed!important;left:0;right:0;bottom:calc(88px + env(safe-area-inset-bottom,0px));order:0}
- #s1 .jb{position:fixed;height:88px;flex-wrap:wrap;align-content:center;gap:6px 10px;padding:6px 12px calc(6px + env(safe-area-inset-bottom,0px))}
- #s1 .jn{flex:1 1 140px}#s1 .jl{order:5;flex:1 1 100%;gap:3px}#s1 .jl button{flex:1;min-width:0;padding:0;height:28px}#s1 .jbar{display:none}
 }
 /* DJ 大賽卡 → 賽事頁連結 */
 #s1 .clink{font:900 .82em/1 "Noto Sans TC",sans-serif;letter-spacing:.08em;color:#2a1203;background:linear-gradient(#ffe9a0,#ffd75a);padding:.5em .9em;border-radius:99px;text-decoration:none;box-shadow:0 3px 0 #8a5a12;white-space:nowrap}
@@ -472,7 +455,6 @@ body[data-lay=c] #s1 .lc,body[data-lay=c] #s1 .rc{gap:1.6vh}
 #s1 .djb img.dji{width:54px;height:54px}
 /* 效能：背景影片的柔焦與壓暗改成預先烤進影片（480p/20fps），瀏覽器不再逐格算模糊 */
 #s1 .bgv,body[data-fx="1"] #s1 .bgv{filter:none!important;transform:scale(1.04);mix-blend-mode:normal;opacity:1}
-#s1 .jv{animation-duration:4s}
 /* 效能：背景改成 8 張柔焦現場畫面慢速交叉淡化＋緩慢推移（兩支影片同時解碼會把整頁壓到 30fps） */
 #s1 .bgs{position:absolute;inset:0;overflow:hidden}
 #s1 .bgs i{position:absolute;inset:-4%;background-size:cover;background-position:center;opacity:0;animation:bgx 40s linear infinite;will-change:opacity,transform}
@@ -481,13 +463,12 @@ body[data-lay=c] #s1 .lc,body[data-lay=c] #s1 .rc{gap:1.6vh}
 #s1 .gtr .gshot img.gth{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 /* 跑馬燈拿掉（使用者），點放機直接貼底；背景影片回到一開始的設定：柔焦景深、不動整片壓暗層 */
 #s1 .ticker{display:none!important}
-#s1 .jb{border-top:1px solid #ffd75aaa}
 #s1 .hd{padding-bottom:66px!important}
 #s1 .bgv,body[data-fx="1"] #s1 .bgv{filter:none!important;transform:none;opacity:1}
 #s1 .bgt{background:radial-gradient(ellipse 85% 90% at 50% 45%,#0000001a,#00000059)}
 #s1 .vig{display:none}
-@media (max-width:860px){#s1 .jb{bottom:0}#s1 .cred{padding-bottom:110px!important}}
-#s1 .cred{bottom:50px}#s1 .hd{padding-bottom:96px!important}
+@media (max-width:860px){#s1 .cred{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))!important}}
+#s1 .cred{bottom:0}#s1 .hd{padding-bottom:50px!important}
 /* 背景幻燈片：10 張現場畫面、每張 10 秒、交叉淡化+緩慢推移，100 秒一輪；微柔焦不糊 */
 #s1 .bgs{position:absolute;inset:0;overflow:hidden}
 #s1 .bgs i{position:absolute;inset:-3%;background-size:cover;background-position:center;opacity:0;animation:bgx 100s linear infinite;will-change:opacity,transform}
@@ -497,14 +478,16 @@ body[data-lay=c] #s1 .lc .tbtn{margin-top:.4vh}
 /* 背景影片：彩度降低、稍暗（預先不烤進影片，用 CSS 一層調色，實測不影響 fps） */
 
 body.onsale .nav,body.presale .nav{display:none!important}
-/* 點放機補齊控制鍵 */
-#s1 .jb button.on{background:#ffd75a;color:#2a1203;border-color:#ffd75a}
-#s1 .jtime{font:700 12px/1 "Chakra Petch",sans-serif;letter-spacing:.06em;color:#ffe9ec;white-space:nowrap;font-variant-numeric:tabular-nums}
-#s1 .jbar{cursor:pointer;height:8px;position:relative;touch-action:none}#s1 .jbar:focus-visible{outline:2px solid #fff;outline-offset:3px}
-#s1 .jbar i{position:relative}#s1 .jbar i:after{content:"";position:absolute;right:-6px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:#ffd75a;box-shadow:0 0 0 2px #0a3f26}
-#s1 .jvol{display:flex;align-items:center;gap:6px;flex:none}#s1 .jvol input{width:80px;accent-color:#ffd75a}
-@media (max-width:860px){#s1 .jtime,#s1 .jvol{display:none}#s1 .jc{flex-wrap:wrap}}
-</style></head><body>
+/* 背景音樂：右下角一顆播放／暫停功能鍵（取代原本整條點放機） */
+#s1 .bgm{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;display:flex;align-items:center;justify-content:center;gap:6px;height:44px;min-width:44px;padding:0 13px 0 11px;border:1.5px solid #ffd75a;border-radius:22px;background:#062a19d9;color:#ffd75a;font:700 11px/1 "Chakra Petch","Noto Sans TC",sans-serif;letter-spacing:.16em;cursor:pointer;box-shadow:0 4px 14px #0009;-webkit-tap-highlight-color:transparent;transition:background .15s,color .15s}
+#s1 .bgm:hover{background:#ffd75a;color:#2a1203}#s1 .bgm:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#s1 .bgm svg{width:18px;height:18px;flex:none;fill:currentColor}#s1 .bgm .ipa{display:none}
+#s1 .bgm[aria-pressed=true] .ipl{display:none}#s1 .bgm[aria-pressed=true] .ipa{display:block}
+/* 窄桌機：頁尾小字幾乎撐滿整列，按鍵往上移一格避開 */
+@media (min-width:861px) and (max-width:1040px){#s1 .bgm{bottom:calc(40px + env(safe-area-inset-bottom,0px))}}
+/* 手機：整頁會捲動，固定在角落一定會蓋到資訊卡，改放在標題右上角的空位、跟著頁面捲動 */
+@media (max-width:860px){#s1 .bgm{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));bottom:auto;right:calc(8px + env(safe-area-inset-right,0px));width:44px;padding:0}#s1 .bgm .bgt2{display:none}}
+/* 兩側資訊欄紅綠對調（使用者：配色以紅色為多）：欄底改深紅，倒數條／數字格／ON SALE 小標改綠 */#s1 .lc,#s1 .rc{background:linear-gradient(165deg,rgba(176,18,42,.95),rgba(120,9,27,.97) 60%,rgba(74,4,15,.98))!important}#s1 .rib{background:linear-gradient(100deg,#22b862,#13843f 45%,#0a5a2b)!important;box-shadow:0 4px 0 #06381c,0 8px 18px #0006!important}#s1 .tile{background:linear-gradient(#138048,#063a20)!important}#s1 .onsl small{background:linear-gradient(100deg,#22b862,#0a5a2b)!important}@media (min-width:861px){#s1 .cred{padding-bottom:8px}}</style></head><body>
 <div class="nav"><button onclick="go(1)">1 開場</button><button onclick="go(2)">2 選卡</button><button onclick="go(3)">3 抽卡</button></div>
 <div class="wipe" id="wipe"></div><div id="flash"></div>
 
@@ -524,7 +507,7 @@ body.onsale .nav,body.presale .nav{display:none!important}
      <button class="tbtn" onclick="window.open('https://www.indievox.com/activity/detail/26_iv0421171','_blank')"><span class="ico">🎫</span><span class="tt"><b id="buyT">購票頁 indievox</b><small>GET YOUR TICKET</small></span><span class="go">→</span></button>
     </div><div class="rc">
     <div class="onsl"><small id="onslT">預售開賣 ON SALE</small><b>9/28<i>（一）</i>12:00</b><span>單日 1,100 / 雙日 2,000</span></div>
-    <a class="djb" href="https://hiphopkidzofficial.github.io/xmas-city-2026/dj/" target="_blank" rel="noopener"><img class="dji" src="../assets/dj_face.png" alt=""><span class="djt"><b class="j2"><span>國語作業簿DJ大賽</span><span>2026官方賽事頁面</span></b><small>預賽名單 · 賽制 · 10/22–24 三城預賽</small></span><span class="djg">→</span></a>
+    <a class="djb" href="../dj/" target="_blank" rel="noopener"><img class="dji" src="../assets/dj_face.png" alt=""><span class="djt"><b class="j2"><span>國語作業簿DJ大賽</span><span>2026官方賽事頁面</span></b><small>預賽名單 · 賽制 · 10/22–24 三城預賽</small></span><span class="djg">→</span></a>
     <ul class="days">
      <li><b>12/25<small>五</small></b><span>DJ 大賽總決賽</span></li>
      <li><b>12/26<small>六</small></b><span>正篇 DAY 1</span></li>
@@ -552,14 +535,8 @@ body.onsale .nav,body.presale .nav{display:none!important}
   </div>
  </div>
  <div class="cred"><span><b>主辦單位</b>｜愛與和平娛樂工作室</span><span>本活動獲文化部影視及流行音樂產業局 115 年行銷推廣補助</span><span>Site by 拍打仔 <b>HIPHOPKIDZ</b> · © 2026 拍打仔有限公司</span></div>
- <div class="jb" id="jb" role="group" aria-label="國語作業簿音樂點放機">
-  <span class="jv" id="jv" aria-hidden="true"></span>
-  <span class="jn"><b>國語作業簿音樂點放機</b><small id="jt">MLPB XMAS FEST 2026 - Track 01</small></span>
-  <span class="jc"><button type="button" id="jp" aria-label="上一首" title="上一首">⏮</button><button type="button" id="jpl" class="pl" aria-label="播放" title="播放 / 暫停">▶</button><button type="button" id="jst" aria-label="停止" title="停止">■</button><button type="button" id="jnx" aria-label="下一首" title="下一首">⏭</button><button type="button" id="jsh" aria-label="隨機播放" aria-pressed="false" title="隨機播放">⇄</button><button type="button" id="jrp" aria-label="單曲循環" aria-pressed="false" title="單曲循環">↻</button></span>
-  <span class="jl" id="jl"></span>
-  <span class="jtime" id="jtm">0:00 / 0:00</span><span class="jbar" id="jbar" role="slider" aria-label="播放進度" tabindex="0"><i id="jpr"></i></span><span class="jvol"><button type="button" id="jmu" aria-label="靜音" aria-pressed="false" title="靜音">🔊</button><input type="range" id="jvl" min="0" max="1" step=".05" value=".8" aria-label="音量"></span>
-  <audio id="ja" preload="none"></audio>
- </div>
+ <button type="button" class="bgm" id="bgm" aria-label="播放音樂" aria-pressed="false" title="播放音樂"><svg class="ipl" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.2v13.6L19 12z"/></svg><svg class="ipa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 5h4v14h-4zM13.5 5h4v14h-4z"/></svg><span class="bgt2">BGM</span></button>
+ <audio id="ja" src="../music/m4a/track01.mp4" preload="none" loop></audio>
 </section>
 
 <section class="scr" id="s2">
@@ -656,7 +633,7 @@ saleTick();setInterval(saleTick,250);
 
 </script>
 <script>
-(()=>{const C=[['../card/index','embed=1','normal','12/25–12/27','國語作業簿台北歡樂耶誕城2026','大佳河濱公園']];
+(()=>{const C=[['../card/index','embed=1&v=3','normal','12/25–12/27','國語作業簿台北歡樂耶誕城2026','大佳河濱公園']];
 const $=i=>document.getElementById(i),f=$('showF'),fr=$('frame'),d=$('dots'),L=C.length;let n=-1,t=0;
 const th=k=>'../cards/th_xmas.webp';
 const put=()=>{const c=C[n];f.style.colorScheme=c[2];f.title='卡片秀：'+c[3]+' '+c[4];f.src=(c[0].startsWith('../')?c[0]:'../cards/'+c[0])+'.html?'+c[1];$('sideL').src=th(n-1);$('sideR').src=th(n+1);$('refl').src=th(n);if(L<2){['arL','arR','dots'].forEach(i=>$(i).style.display='none');$('sideL').style.display=$('sideR').style.display='none'}{const cn=$('cname');cn.textContent='';[['b',c[3]],['span',c[4]],['small',c[5]]].forEach(([t,v])=>{const e=document.createElement(t);e.textContent=v;cn.appendChild(e)});}[...d.children].forEach((e,k)=>e.classList.toggle('on',k===n))};
@@ -705,32 +682,20 @@ const cv=$('fxc'),cx=cv.getContext('2d');let W,H,P=[];const rs=()=>{W=cv.width=c
 for(let i=0;i<46;i++)P.push({x:Math.random(),y:Math.random(),r:Math.random()*2.6+.6,s:Math.random()*.00012+.00004,w:Math.random()*6.28,g:Math.random()<.3});
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){let last=0;const fr=t=>{if(document.getElementById('s1').classList.contains('on')&&t-last>32){last=t;cx.clearRect(0,0,W,H);for(const p of P){p.y+=p.s*32;p.w+=.008;if(p.y>1.02){p.y=-.02;p.x=Math.random()}
  const x=(p.x+Math.sin(p.w)*.008)*W,y=p.y*H;cx.beginPath();cx.arc(x,y,p.r,0,6.28);cx.fillStyle=p.g?'rgba(255,226,122,.75)':'rgba(255,255,255,.7)';cx.fill()}}requestAnimationFrame(fr)};requestAnimationFrame(fr)}
-// 音樂點放機：遊戲開場的前十首輪播
-const ST=['Xmas Swing','Xmas Swing','Xmas Ballad','Xmas Ballad','Xmas Bossa','Xmas Bossa','Xmas Big Band','Xmas Big Band','Xmas Cool','Xmas Cool'],ja=$('ja'),jb=$('jb'),jl=$('jl');let ji=0;
-const jshow=()=>{$('jt').textContent='MLPB XMAS FEST 2026 - Track '+String(ji+1).padStart(2,'0');[...jl.children].forEach((e,k)=>e.setAttribute('aria-current',k===ji))};
-let jsh=false,jrp=false,jmuted=false,jvol=.8;
-const jload=(k,play)=>{ji=(k+10)%10;ja.src='../music/m4a/track'+String(ji+1).padStart(2,'0')+'.mp4';jshow();$('jpr').style.width='0';if(play)ja.play().catch(()=>{})};
-const jnext=()=>{if(jsh){let n;do n=Math.floor(Math.random()*10);while(n===ji);jload(n,true)}else jload(ji+1,true)};
-const fmt=s=>isFinite(s)?Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'):'0:00';
-for(let k=0;k<10;k++){const e=document.createElement('button');e.type='button';e.textContent=String(k+1).padStart(2,'0');e.title='點播第 '+(k+1)+' 首';e.onclick=()=>jload(k,true);jl.appendChild(e)}
-$('jpl').onclick=()=>{if(!ja.src)jload(ji,true);else ja.paused?ja.play().catch(()=>{}):ja.pause()};
-$('jp').onclick=()=>{if(ja.currentTime>3){ja.currentTime=0}else jload(ji-1,true)};$('jnx').onclick=jnext;
-$('jst').onclick=()=>{ja.pause();ja.currentTime=0;$('jpr').style.width='0';$('jtm').textContent='0:00 / '+fmt(ja.duration)};
-$('jsh').onclick=e=>{jsh=!jsh;e.currentTarget.setAttribute('aria-pressed',jsh);e.currentTarget.classList.toggle('on',jsh)};
-$('jrp').onclick=e=>{jrp=!jrp;ja.loop=jrp;e.currentTarget.setAttribute('aria-pressed',jrp);e.currentTarget.classList.toggle('on',jrp)};
-$('jmu').onclick=e=>{jmuted=!jmuted;ja.muted=jmuted;e.currentTarget.setAttribute('aria-pressed',jmuted);e.currentTarget.textContent=jmuted?'🔇':'🔊'};
-$('jvl').oninput=e=>{jvol=+e.target.value;ja.volume=jvol;if(jmuted){jmuted=false;ja.muted=false;$('jmu').setAttribute('aria-pressed',false);$('jmu').textContent='🔊'}};
-const seekTo=x=>{const r=$('jbar').getBoundingClientRect();if(ja.duration)ja.currentTime=Math.min(1,Math.max(0,(x-r.left)/r.width))*ja.duration};
-$('jbar').addEventListener('pointerdown',e=>{seekTo(e.clientX);const mv=ev=>seekTo(ev.clientX),up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up)};addEventListener('pointermove',mv);addEventListener('pointerup',up)});
-$('jbar').addEventListener('keydown',e=>{if(e.key==='ArrowRight')ja.currentTime=Math.min(ja.duration||0,ja.currentTime+5);if(e.key==='ArrowLeft')ja.currentTime=Math.max(0,ja.currentTime-5)});
-document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea')||!$('s1').classList.contains('on'))return;if(e.code==='Space'&&!e.target.closest('button,a,input,select,textarea,[contenteditable]')){e.preventDefault();$('jpl').click()}});
-ja.addEventListener('ended',()=>{if(!jrp)jnext()});ja.addEventListener('error',()=>{$('jt').textContent+='（載入失敗，跳下一首）';setTimeout(jnext,800)});ja.addEventListener('play',()=>{jb.classList.add('on');$('jpl').textContent='⏸';$('jpl').setAttribute('aria-label','暫停')});
-ja.addEventListener('pause',()=>{jb.classList.remove('on');$('jpl').textContent='▶';$('jpl').setAttribute('aria-label','播放')});
-// 一進頁就播放：先試自動播放，瀏覽器擋的話等第一次觸碰/點擊/按鍵再播
-{const tryPlay=()=>{if(!ja.src)jload(ji,true);else if(ja.paused)ja.play().catch(()=>{})};window.__xoPlay=tryPlay;(window.__afterCard=window.__afterCard||[]).push(tryPlay);
- const arm=()=>{tryPlay();['pointerdown','keydown','touchstart'].forEach(t=>document.removeEventListener(t,arm))};
- ['pointerdown','keydown','touchstart'].forEach(t=>document.addEventListener(t,arm,{passive:true}))}
-ja.addEventListener('timeupdate',()=>{if(ja.duration){$('jpr').style.width=(ja.currentTime/ja.duration*100)+'%';$('jtm').textContent=fmt(ja.currentTime)+' / '+fmt(ja.duration)}});ja.addEventListener('loadedmetadata',()=>{$('jtm').textContent='0:00 / '+fmt(ja.duration)});ja.volume=.8;
+// 背景音樂：只放一首、循環；右下角播放／暫停鍵，圖示跟著真實播放狀態
+const ja=$('ja'),bgm=$('bgm');let jUserPaused=false;ja.volume=.8;
+bgm.setAttribute('aria-label','BGM 背景音樂');const jsync=()=>{const on=!ja.paused&&!ja.ended;bgm.setAttribute('aria-pressed',on);bgm.title=on?'暫停音樂':'播放音樂'};
+['play','playing','pause','ended','emptied','error'].forEach(t=>ja.addEventListener(t,jsync));jsync();
+bgm.addEventListener('click',()=>{if(ja.paused){jUserPaused=false;ja.play().catch(()=>{})}else{jUserPaused=true;ja.pause()}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea')||!$('s1').classList.contains('on'))return;if(e.code==='Space'&&!e.target.closest('button,a,input,select,textarea,[contenteditable]')){e.preventDefault();bgm.click()}});
+// 一進頁就播放：先試自動播放，瀏覽器擋的話等第一次觸碰/點擊/按鍵再播；使用者自己按暫停後不再自動重播
+{const tryPlay=()=>{if(!jUserPaused&&ja.paused)ja.play().catch(()=>{})};window.__xoPlay=tryPlay;(window.__afterCard=window.__afterCard||[]).push(tryPlay);
+ // 手機的 touchstart/pointerdown 不算「使用者同意」，改聽 click/touchend/keydown；播放成功才解除（失敗的那次不會用掉機會）；點在卡片 iframe 裡也算
+ const EV=['click','touchend','keydown'];let armed=true;const arm=e=>{if(!armed)return;if(e&&e.target&&e.target.closest&&e.target.closest('#bgm'))return;if(jUserPaused||!ja.paused){armed=false;return}ja.play().then(()=>{armed=false}).catch(()=>{})};
+ EV.forEach(t=>document.addEventListener(t,arm,{passive:true}));
+ const cardF=document.querySelector('#s1 iframe');if(cardF)cardF.addEventListener('load',()=>{try{const d=cardF.contentDocument;EV.forEach(t=>d.addEventListener(t,arm,{passive:true}))}catch(e){}});
+ // 跟小遊戲的播放器輪流：這邊一播就請上層把遊戲音樂停掉；上層要播遊戲音樂時可呼叫 __xoPause
+ window.__xoPause=()=>{if(!ja.paused)ja.pause()};ja.addEventListener('play',()=>{try{parent.postMessage({t:'xo-bgm-on'},'*')}catch(e){}})}
 if(typeof go==='function'){const g0=go;window.go=function(n){if(n!==1)ja.pause();return g0.apply(this,arguments)}}
 {const gv=$('gtv'),N=12,pre=[];(window.__afterCard=window.__afterCard||[]).push(()=>{for(let k=0;k<N;k++){const im=new Image();im.src='../assets/ride/tr/f'+k+'.jpg';pre.push(im)}});let k=0;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(pre.length){k=(k+1)%N;gv.src=pre[k].src}},500)}
 

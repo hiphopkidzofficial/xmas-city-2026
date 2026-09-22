@@ -1,7 +1,7 @@
 <!doctype html><html lang="zh-Hant"><head>
 
 
-<meta charset="utf-8">
+<meta charset="utf-8"><script>(function(){const raf=window.requestAnimationFrame.bind(window),caf=window.cancelAnimationFrame.bind(window);let q=new Map(),n=0;window.__xoCover=true;window.requestAnimationFrame=cb=>{if(window.__xoCover){const id=-(++n);q.set(id,cb);return id}return raf(cb)};window.cancelAnimationFrame=id=>{if(id<0)q.delete(id);else caf(id)};window.__xoUncover=()=>{window.__xoCover=false;const p=[...q.values()];q.clear();p.forEach(cb=>raf(cb))};window.__xoRecover=()=>{window.__xoCover=true}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style id="bt-hold">.bike,.bz,.coin .glow,.coin i,.dpart,.glint,main::before{background-image:none!important;-webkit-mask-image:none!important;mask-image:none!important}</style><style id="bt-css">#boot{--bt-bg:radial-gradient(ellipse at 50% 38%,#9a1226 0%,#56081a 52%,#1d0308 100%);--bt-fg:#fff3d6;--bt-fg2:#ffe3b0;--bt-ac:#ffd23f;--bt-ac2:#e8241a;--bt-seg:#3ad66a;--bt-font:"Press Start 2P",ui-monospace,Menlo,monospace;--bt-ks:10px;--bt-rs:12px;--bt-bs:15px;--bt-lw:400px;--bt-lar:770/360;--bt-ms:56px}html.booting{overflow:hidden}
 #boot{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:24px 16px;background:var(--bt-bg);color:var(--bt-fg);font-family:var(--bt-font);overflow:hidden;transition:opacity .45s ease,visibility .45s;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 #boot.bt-out{opacity:0;visibility:hidden}
@@ -1551,7 +1551,7 @@ window.RideWorld = function (cv, opts) {
   })();
 
   // ── Winamp 致敬播放器：十首輪播。主路徑＝抓音檔→Web Audio 解碼→播放＋真頻譜；抓不到（CORS/沙盒）就退回 <audio> ＋ 節奏假頻譜 ──
-  const TRACKS = [{"title": "今年份最後的歡樂", "style": "Xmas Swing", "url": "music/mp3/track01.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Swing", "url": "music/mp3/track02.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Ballad", "url": "music/mp3/track03.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Ballad", "url": "music/mp3/track04.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Bossa", "url": "music/mp3/track05.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Bossa", "url": "music/mp3/track06.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Big Band", "url": "music/mp3/track07.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Big Band", "url": "music/mp3/track08.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Cool", "url": "music/mp3/track09.mp3"}, {"title": "今年份最後的歡樂", "style": "Xmas Cool", "url": "music/mp3/track10.mp3"}];
+  const TRACKS = [{"title": "今年份最後的歡樂", "style": "Xmas Swing", "url": "music/m4a/track01.mp4"}];
   if (TRACKS.length) {
     const W = document.getElementById('winamp'), list = document.getElementById('waList'), tEl = document.getElementById('waTime'), ico = document.getElementById('waIco'), ttl = document.getElementById('waTitle'), seek = document.getElementById('waSeek'), vol = document.getElementById('waVol'), vis = document.getElementById('waVis'), vg = vis.getContext('2d');
     W.hidden = false;
@@ -1564,7 +1564,7 @@ window.RideWorld = function (cv, opts) {
     const setTitle = (extra) => { ttl.textContent = `${String(st.i + 1).padStart(2, '0')}. 今年份最後的歡樂  國語作業簿 台北歡樂耶誕城  ${(TRACKS[st.i].style || '').toUpperCase()}${extra ? '  ' + extra : ''}  ***  `; list.querySelectorAll('button').forEach((b, k) => { b.classList.toggle('on', k === st.i); b.setAttribute('aria-pressed', String(k === st.i)); }); };
     function pos() { return st.mode === 'buf' ? (st.playing ? ctx.currentTime - st.startAt + st.offset : st.offset) : au.currentTime; }
     function stopSrc() { if (st.src) { try { st.src.onended = null; st.src.stop(); } catch (_) {} st.src = null; } }
-    function startSrc(offset) { stopSrc(); const s = ctx.createBufferSource(); s.buffer = st.buf; s.connect(gain); s.onended = () => { if (st.playing && st.src === s) next(); }; st.offset = offset; st.startAt = ctx.currentTime; s.start(0, offset); st.src = s; st.playing = true; ico.textContent = 'PLAY'; }
+    function startSrc(offset) { try{const w=document.getElementById('xo');w&&w.contentWindow&&w.contentWindow.__xoPause&&w.contentWindow.__xoPause()}catch(_){}stopSrc(); const s = ctx.createBufferSource(); s.buffer = st.buf; s.connect(gain); s.onended = () => { if (st.playing && st.src === s) next(); }; st.offset = offset; st.startAt = ctx.currentTime; s.start(0, offset); st.src = s; st.playing = true; ico.textContent = 'PLAY'; }
     function audioReady() {
       if (!ctx) { try { ctx = new AC(); gain = ctx.createGain(); an = ctx.createAnalyser(); an.fftSize = 128; an.smoothingTimeConstant = .82; gain.connect(an); an.connect(ctx.destination); gain.gain.value = +vol.value; } catch (_) { ctx = null; } }
       if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {});
@@ -1576,7 +1576,7 @@ window.RideWorld = function (cv, opts) {
     function playElement(id) {
       au.play().then(() => {
         if (id !== requestId || !st.wantPlay) return;
-        st.playing = true; ico.textContent = 'PLAY';
+        st.playing = true; ico.textContent = 'PLAY'; try{const w=document.getElementById('xo');w&&w.contentWindow&&w.contentWindow.__xoPause&&w.contentWindow.__xoPause()}catch(_){}
       }).catch(() => { if (id === requestId) { st.playing = false; ico.textContent = 'STOP'; setTitle('PRESS PLAY'); } });
     }
     async function loadAndPlay(k, autoplay) {
@@ -1643,7 +1643,7 @@ window.RideWorld = function (cv, opts) {
       }
     }
         animate(visFrame, W, false); setTitle('READY');
-    addEventListener('keydown', (e) => { if (e.repeat || e.ctrlKey || e.metaKey || e.altKey || (document.activeElement && (document.activeElement.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)))) return; const m = /^Digit(\d)$/.exec(e.code); if (m) { const k = (m[1] === '0' ? 10 : +m[1]) - 1; if (k < TRACKS.length) loadAndPlay(k, true); } });
+    addEventListener('keydown', (e) => { if (window.__xoCover) return; if (e.repeat || e.ctrlKey || e.metaKey || e.altKey || (document.activeElement && (document.activeElement.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)))) return; const m = /^Digit(\d)$/.exec(e.code); if (m) { const k = (m[1] === '0' ? 10 : +m[1]) - 1; if (k < TRACKS.length) loadAndPlay(k, true); } });
     // 落針＋炒豆子：Web Audio 合成（低頻悶響一聲 + 2.8 秒隨機爆點 + 底噪），GO 時起播
     function needle() {
       endNeedle(); countdownAuto = !st.playing;
@@ -1769,11 +1769,11 @@ window.RideWorld = function (cv, opts) {
 <iframe id="xo" data-src="proto/index.html" title="XMAS RIDER 卡牌介面" style="position:fixed;inset:0;width:100%;height:100%;border:0;z-index:9000;background:#0b0b0d"></iframe>
 <button id="xoBack" style="position:fixed;left:10px;bottom:10px;z-index:8999;font:900 12px/1 sans-serif;padding:8px 12px;border:0;background:#f5c542;color:#0b0b0d;transform:skewX(-12deg);box-shadow:3px 3px 0 #000;cursor:pointer">◀ 開場 / 選卡</button>
 <script>(function(){const xo=document.getElementById('xo');xo.src=xo.dataset.src+location.search;let rode=false,shown=true,sale=false;const bk=document.getElementById('xoBack');bk.style.display='none';
-function show(m){xo.style.display='block';shown=true;xo.contentWindow.postMessage(m,'*');xo.focus();}
-function hide(){xo.style.display='none';shown=false;window.focus();}
+function show(m){xo.style.display='block';shown=true;window.__xoRecover&&window.__xoRecover();try{const j=window.__jb;j&&j.st&&j.st.playing&&j.pause()}catch(e){}xo.contentWindow.postMessage(m,'*');xo.focus();}
+function hide(){xo.style.display='none';shown=false;window.__xoUncover&&window.__xoUncover();window.focus();}
 document.getElementById('xoBack').onclick=()=>show({t:'xo-home'});
 const __U=["https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"];const __loadThree=()=>{if(window.__threeP)return window.__threeP;window.__threeP=__U.reduce((p,u)=>p.then(()=>new Promise(res=>{const s=document.createElement('script');s.src=u;s.onload=res;s.onerror=res;document.head.appendChild(s)})),Promise.resolve()).then(()=>{try{window.__initGL&&window.__initGL()}catch(e){console.error(e)}});return window.__threeP};let __gameStarted=false;const __startGameOnce=()=>{if(__gameStarted)return;if(document.getElementById('boot')&&!window.__bootDone){addEventListener('boot-done',()=>setTimeout(__startGameOnce,400),{once:true});return}__gameStarted=true;try{window.__startGame()}catch(e){console.error(e)}__loadThree()};setTimeout(__startGameOnce,6000);
-addEventListener('message',e=>{const d=e.data||{},g=window.__ride;if(d.t==='xo-ready'){__startGameOnce();}if(d.t==='xo-sale'){sale=!!d.on;bk.style.display=sale?'':'none';if(!sale&&!shown)show({t:'xo-home'});}
+addEventListener('message',e=>{const d=e.data||{},g=window.__ride;if(d.t==='xo-ready'){__startGameOnce();}if(d.t==='xo-bgm-on'){try{const j=window.__jb;j&&j.st&&j.st.playing&&j.pause()}catch(e){}}if(d.t==='xo-sale'){sale=!!d.on;bk.style.display=sale?'':'none';if(!sale&&!shown)show({t:'xo-home'});}
  if(!sale&&(d.t==='xo-close'||d.t==='xo-go'))return;
  if(d.t==='xo-close'){hide();}
  if(d.t==='xo-go'){hide();if(!g)return;try{g.S.ch=d.ch;localStorage.setItem('xr_ch',d.ch);}catch(_){}

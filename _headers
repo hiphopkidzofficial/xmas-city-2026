@@ -1,0 +1,19 @@
+# Cloudflare Pages 快取規則（GitHub Pages 會忽略這個檔）
+# 網頁本體每次都跟伺服器確認有沒有新版；圖片/影片/音樂/字型先用手機裡的、背景再悄悄更新
+/*
+  X-Content-Type-Options: nosniff
+
+/card/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=604800
+/cards/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=604800
+/assets/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=604800
+/music/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/sfx/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/dj/cards/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=604800
+/dj/float/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=604800
