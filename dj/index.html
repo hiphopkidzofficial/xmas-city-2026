@@ -97,13 +97,13 @@ footer{border-top:4px solid var(--accent);padding-block:40px 28px;font-size:14px
  <span class="eyebrow">2026 預賽賽程</span><h2>三城預賽倒數，<em>只有六位選手</em>可以站上最終舞台！</h2>
  <div class="cd" id="cd" role="timer" aria-label="距離首場預賽"><span class="cdl">距離首場預賽 10/22 台北</span><b id="cdd">--</b><i>天</i><b id="cdh">--</b><i>時</i><b id="cdm">--</b><i>分</i><b id="cds">--</b><i>秒</i></div>
  <div class="rounds">
-  <article class="round"><div class="cardf still stack" role="img" aria-label="台北預賽卡"><img src="float/taipei/base.webp" alt="" loading="lazy"><div class="clip"><img class="fl" src="float/taipei/tower.webp" alt="" loading="lazy" style="--a:-0.55%;--d:3.9s;--dl:-1.3s"></div><img src="float/taipei/mid.webp" alt="" loading="lazy"><div class="clip"><img class="fl" src="float/taipei/hero.webp" alt="" loading="lazy" style="--a:-1.1%;--d:2.9s;--dl:0s"></div><img src="float/taipei/front.webp" alt="" loading="lazy"></div>
+  <article class="round"><iframe class="cardf" loading="lazy" title="台北預賽卡" src="cards/taipei/index.html?capture=1"></iframe>
    <div class="date">10/22<small>（四）</small></div><h3>北區預賽 · 台北</h3><div class="venue">SOCIAL COMPANY</div>
    <ul class="lineup"><li>DJ BEEK</li><li>DJ LouisC</li><li>DJ Frantic</li><li>DJ QQBall</li><li>DJ Justin</li><li>DJ XUAN</li></ul></article>
-  <article class="round"><div class="cardf still stack" role="img" aria-label="台中預賽卡"><img src="float/taichung/base.webp" alt="" loading="lazy"><div class="clip"><img class="fl" src="float/taichung/tower.webp" alt="" loading="lazy" style="--a:-0.55%;--d:4.2s;--dl:-2.2s"></div><img src="float/taichung/mid.webp" alt="" loading="lazy"><div class="clip"><img class="fl" src="float/taichung/hero.webp" alt="" loading="lazy" style="--a:-1.1%;--d:3.1s;--dl:-0.7s"></div><img src="float/taichung/front.webp" alt="" loading="lazy"></div>
+  <article class="round"><iframe class="cardf" loading="lazy" title="台中預賽卡" src="cards/taichung/index.html?capture=1"></iframe>
    <div class="date">10/23<small>（五）</small></div><h3>中區預賽 · 台中</h3><div class="venue">X CUBE</div>
    <ul class="lineup"><li>DJ 11</li><li>DJ AGA</li><li>DJ Niebao</li><li>DJ BigJohn</li><li>DJ Roman</li><li>DJ SHEN</li></ul></article>
-  <article class="round"><div class="cardf still stack" role="img" aria-label="高雄預賽卡"><img src="float/kaohsiung/base.webp" alt="" loading="lazy"><div class="clip"><img class="fl" src="float/kaohsiung/tower.webp" alt="" loading="lazy" style="--a:-0.55%;--d:3.7s;--dl:-0.4s"></div><img src="float/kaohsiung/mid.webp" alt="" loading="lazy"><div class="clip"><img class="fl" src="float/kaohsiung/hero.webp" alt="" loading="lazy" style="--a:-1.1%;--d:2.7s;--dl:-1.6s"></div><img src="float/kaohsiung/front.webp" alt="" loading="lazy"></div>
+  <article class="round"><iframe class="cardf" loading="lazy" title="高雄預賽卡" src="cards/kaohsiung/index.html?capture=1"></iframe>
    <div class="date">10/24<small>（六）</small></div><h3>南區預賽 · 高雄</h3><div class="venue">COCCO &amp; CO.</div>
    <ul class="lineup"><li>DJ YU</li><li>DJ YEN</li><li>DJ MARO</li><li>DJ Ocean</li><li>DJ Gter</li><li>DJ BB</li></ul></article>
  </div>
@@ -138,5 +138,5 @@ const tick=()=>{let s=Math.max(0,Math.floor((T-Date.now())/1000));if(!s){$('cd')
  $('cdd').textContent=Math.floor(s/86400);$('cdh').textContent=p(Math.floor(s%86400/3600));$('cdm').textContent=p(Math.floor(s%3600/60));$('cds').textContent=p(s%60)};tick();setInterval(tick,1000);
 })();
 </script>
-<script>(()=>{if(!('IntersectionObserver'in window))return;const io=new IntersectionObserver(es=>es.forEach(e=>e.target.toggleAttribute('data-off',!e.isIntersecting)),{rootMargin:'120px'});document.querySelectorAll('.herobg,.stack').forEach(el=>io.observe(el))})();</script>
+<script>(()=>{if(!('IntersectionObserver'in window))return;const io=new IntersectionObserver(es=>es.forEach(e=>e.target.toggleAttribute('data-off',!e.isIntersecting)),{rootMargin:'120px'});document.querySelectorAll('.herobg').forEach(el=>io.observe(el))})();</script>
 </body></html>
