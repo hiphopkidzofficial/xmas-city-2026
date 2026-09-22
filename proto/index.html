@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>XMAS RIDER 介面樣機</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&display=swap">
-<style>
+<link rel="preload" as="image" href="../card/fx_mask.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/belly_mask.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/bg.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g00.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g01.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g02.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g03.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g04.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g05.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g06.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g07.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g08.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g09.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g10.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g11.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g12.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g13.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g14.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/g15.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/glow_g08.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/glow_g11.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/layers/glow_g13.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/t_accent.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/t_green.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/t_plate.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/t_shadow.webp" fetchpriority="high"><link rel="preload" as="image" href="../card/title.webp" fetchpriority="high"><style>
 :root{--red:#c8102e;--red2:#8e0b20;--green:#0e5a36;--green2:#083a23;--gold:#f5c542;--ink:#0b0b0d;--paper:#fff8ec}
 *{box-sizing:border-box;margin:0}html,body{height:100%}
 body{background:var(--ink);color:#fff;font-family:"Arial Black","Impact","PingFang TC","Heiti TC",sans-serif;overflow:hidden;-webkit-user-select:none;user-select:none}
@@ -509,7 +509,7 @@ body.onsale .nav,body.presale .nav{display:none!important}
 <div class="wipe" id="wipe"></div><div id="flash"></div>
 
 <section class="scr on" id="s1">
- <div class="scn"><video class="bgv" id="bgv" src="../assets/bg_loop_tone.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true"></video><div class="bfx"></div><div class="bgt"></div><div class="rays"></div><div class="flr"></div></div><div class="vig"></div><canvas class="fxc" id="fxc" aria-hidden="true"></canvas>
+ <div class="scn"><video class="bgv" id="bgv" data-src="../assets/bg_loop_tone.mp4" muted loop playsinline preload="none" aria-hidden="true"></video><div class="bfx"></div><div class="bgt"></div><div class="rays"></div><div class="flr"></div></div><div class="vig"></div><canvas class="fxc" id="fxc" aria-hidden="true"></canvas>
  <div class="hd">
   <div class="colL">
    <img class="ttl2" src="../assets/logotype_color.png" alt="國語作業簿 台北歡樂耶誕城 2026">
@@ -656,7 +656,7 @@ saleTick();setInterval(saleTick,250);
 
 </script>
 <script>
-(()=>{const C=[['../card/index','embed=1','normal','12/26–27','國語作業簿 台北歡樂耶誕城','台北大佳河濱公園']];
+(()=>{const C=[['../card/index','embed=1','normal','12/25–12/27','國語作業簿台北歡樂耶誕城2026','大佳河濱公園']];
 const $=i=>document.getElementById(i),f=$('showF'),fr=$('frame'),d=$('dots'),L=C.length;let n=-1,t=0;
 const th=k=>'../cards/th_xmas.webp';
 const put=()=>{const c=C[n];f.style.colorScheme=c[2];f.title='卡片秀：'+c[3]+' '+c[4];f.src=(c[0].startsWith('../')?c[0]:'../cards/'+c[0])+'.html?'+c[1];$('sideL').src=th(n-1);$('sideR').src=th(n+1);$('refl').src=th(n);if(L<2){['arL','arR','dots'].forEach(i=>$(i).style.display='none');$('sideL').style.display=$('sideR').style.display='none'}{const cn=$('cname');cn.textContent='';[['b',c[3]],['span',c[4]],['small',c[5]]].forEach(([t,v])=>{const e=document.createElement(t);e.textContent=v;cn.appendChild(e)});}[...d.children].forEach((e,k)=>e.classList.toggle('on',k===n))};
@@ -693,7 +693,7 @@ $('arL').onclick=()=>set(n-1,-1);$('arR').onclick=()=>set(n+1,1);
 {let wx=0,wt=0;$('show').addEventListener('wheel',e=>{if(Math.abs(e.deltaX)<Math.abs(e.deltaY))return;e.preventDefault();const now=Date.now();if(now-wt>400)wx=0;wt=now;wx+=e.deltaX;if(Math.abs(wx)>90){set(n+(wx>0?1:-1),wx>0?1:-1);wx=0}},{passive:false});
  let tx=null;$('show').addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});$('show').addEventListener('touchend',e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>60)set(n+(dx<0?1:-1),dx<0?1:-1)},{passive:true})}
 document.addEventListener('keydown',e=>{if(!$('s1').classList.contains('on'))return;if(e.key==='ArrowLeft')set(n-1,-1);if(e.key==='ArrowRight')set(n+1,1)});
-set(0);
+set(0);{let done=false;const go=()=>{if(done)return;done=true;const v=$('bgv');if(v&&v.dataset.src){v.src=v.dataset.src;v.load();const pv=()=>v.play().catch(()=>{});pv();document.addEventListener('pointerdown',pv,{once:true})}(window.__afterCard||[]).forEach(fn=>{try{fn()}catch(e){}});try{parent.postMessage({t:'xo-ready'},'*')}catch(e){}};f.addEventListener('load',()=>setTimeout(go,120));setTimeout(go,5000)}
 if(Date.now()>=Date.parse('2026-12-28T00:00:00+08:00')){document.documentElement.innerHTML='<meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#0a3f26;color:#fff8ec;font:700 clamp(18px,3vw,28px)/1.6 -apple-system,\'Noto Sans TC\',sans-serif;text-align:center;padding:24px"><div>國語作業簿 台北歡樂耶誕城 2026<br>活動已圓滿結束，謝謝大家！<br><a href="https://www.instagram.com/mylanguagepracticebook/" style="color:#ffd75a;font-size:.7em">@mylanguagepracticebook</a></div></body>';throw new Error('closed')}
 document.body.dataset.lay='c';{const eq=()=>{const l=document.querySelector('#s1 .lc'),r=document.querySelector('#s1 .rc');if(!l||!r)return;document.body.style.setProperty('--ph','auto');if(innerWidth<=860)return;const m=Math.max(l.offsetHeight,r.offsetHeight);document.body.style.setProperty('--ph',m+'px')};addEventListener('load',eq);addEventListener('resize',eq);setTimeout(eq,400);setTimeout(eq,1500)}document.body.dataset.fx=new URLSearchParams(location.search).get('fx')||'1';
 // 倒數牌
@@ -727,12 +727,12 @@ document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea')||!
 ja.addEventListener('ended',()=>{if(!jrp)jnext()});ja.addEventListener('error',()=>{$('jt').textContent+='（載入失敗，跳下一首）';setTimeout(jnext,800)});ja.addEventListener('play',()=>{jb.classList.add('on');$('jpl').textContent='⏸';$('jpl').setAttribute('aria-label','暫停')});
 ja.addEventListener('pause',()=>{jb.classList.remove('on');$('jpl').textContent='▶';$('jpl').setAttribute('aria-label','播放')});
 // 一進頁就播放：先試自動播放，瀏覽器擋的話等第一次觸碰/點擊/按鍵再播
-{const tryPlay=()=>{if(!ja.src)jload(ji,true);else if(ja.paused)ja.play().catch(()=>{})};tryPlay();
+{const tryPlay=()=>{if(!ja.src)jload(ji,true);else if(ja.paused)ja.play().catch(()=>{})};(window.__afterCard=window.__afterCard||[]).push(tryPlay);
  const arm=()=>{tryPlay();['pointerdown','keydown','touchstart'].forEach(t=>document.removeEventListener(t,arm))};
  ['pointerdown','keydown','touchstart'].forEach(t=>document.addEventListener(t,arm,{passive:true}))}
 ja.addEventListener('timeupdate',()=>{if(ja.duration){$('jpr').style.width=(ja.currentTime/ja.duration*100)+'%';$('jtm').textContent=fmt(ja.currentTime)+' / '+fmt(ja.duration)}});ja.addEventListener('loadedmetadata',()=>{$('jtm').textContent='0:00 / '+fmt(ja.duration)});ja.volume=.8;
 if(typeof go==='function'){const g0=go;window.go=function(n){if(n!==1)ja.pause();return g0.apply(this,arguments)}}
-{const gv=$('gtv'),N=12,pre=[];for(let k=0;k<N;k++){const im=new Image();im.src='../assets/ride/tr/f'+k+'.jpg';pre.push(im)}let k=0;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{k=(k+1)%N;gv.src=pre[k].src},500)}
+{const gv=$('gtv'),N=12,pre=[];(window.__afterCard=window.__afterCard||[]).push(()=>{for(let k=0;k<N;k++){const im=new Image();im.src='../assets/ride/tr/f'+k+'.jpg';pre.push(im)}});let k=0;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(pre.length){k=(k+1)%N;gv.src=pre[k].src}},500)}
 
 
 })();
