@@ -656,7 +656,7 @@ saleTick();setInterval(saleTick,250);
 
 </script>
 <script>
-(()=>{const C=[['xmas','embed=1','normal','12/26–27','國語作業簿 台北歡樂耶誕城','台北大佳河濱公園'],['xmas-m','embed=1','normal','12/26–27','國語作業簿 台北歡樂耶誕城','台北大佳河濱公園'],['final','capture=1','dark','12/25（五）','DJ 大賽總決賽','台北大佳河濱公園'],['taipei','capture=1','dark','10/22（四）','DJ 大賽 北區預賽','台北 SOCIAL COMPANY'],['taichung','capture=1','dark','10/23（五）','DJ 大賽 中區預賽','台中 X CUBE'],['kaohsiung','capture=1','dark','10/24（六）','DJ 大賽 南區預賽','高雄 COCCO & CO.']];
+(()=>{const C=[['xmas','embed=1','normal','12/26–27','國語作業簿 台北歡樂耶誕城','台北大佳河濱公園'],['final','capture=1','dark','12/25（五）','DJ 大賽總決賽','台北大佳河濱公園']];
 const $=i=>document.getElementById(i),f=$('showF'),fr=$('frame'),d=$('dots'),L=C.length;let n=-1,t=0;
 const th=k=>'../cards/th_'+C[(k+L)%L][0]+'.webp';
 const put=()=>{const c=C[n];f.style.colorScheme=c[2];f.title='卡片秀：'+c[3]+' '+c[4];f.src='../cards/'+c[0]+'.html?'+c[1];$('sideL').src=th(n-1);$('sideR').src=th(n+1);$('refl').src=th(n);{const cn=$('cname');cn.textContent='';[['b',c[3]],['span',c[4]],['small',c[5]]].forEach(([t,v])=>{const e=document.createElement(t);e.textContent=v;cn.appendChild(e)});}[...d.children].forEach((e,k)=>e.classList.toggle('on',k===n))};
@@ -726,6 +726,10 @@ $('jbar').addEventListener('keydown',e=>{if(e.key==='ArrowRight')ja.currentTime=
 document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea')||!$('s1').classList.contains('on'))return;if(e.code==='Space'&&!e.target.closest('button,a,input,select,textarea,[contenteditable]')){e.preventDefault();$('jpl').click()}});
 ja.addEventListener('ended',()=>{if(!jrp)jnext()});ja.addEventListener('error',()=>{$('jt').textContent+='（載入失敗，跳下一首）';setTimeout(jnext,800)});ja.addEventListener('play',()=>{jb.classList.add('on');$('jpl').textContent='⏸';$('jpl').setAttribute('aria-label','暫停')});
 ja.addEventListener('pause',()=>{jb.classList.remove('on');$('jpl').textContent='▶';$('jpl').setAttribute('aria-label','播放')});
+// 一進頁就播放：先試自動播放，瀏覽器擋的話等第一次觸碰/點擊/按鍵再播
+{const tryPlay=()=>{if(!ja.src)jload(ji,true);else if(ja.paused)ja.play().catch(()=>{})};tryPlay();
+ const arm=()=>{tryPlay();['pointerdown','keydown','touchstart'].forEach(t=>document.removeEventListener(t,arm))};
+ ['pointerdown','keydown','touchstart'].forEach(t=>document.addEventListener(t,arm,{passive:true}))}
 ja.addEventListener('timeupdate',()=>{if(ja.duration){$('jpr').style.width=(ja.currentTime/ja.duration*100)+'%';$('jtm').textContent=fmt(ja.currentTime)+' / '+fmt(ja.duration)}});ja.addEventListener('loadedmetadata',()=>{$('jtm').textContent='0:00 / '+fmt(ja.duration)});ja.volume=.8;
 if(typeof go==='function'){const g0=go;window.go=function(n){if(n!==1)ja.pause();return g0.apply(this,arguments)}}
 {const gv=$('gtv'),N=12,pre=[];for(let k=0;k<N;k++){const im=new Image();im.src='../assets/ride/tr/f'+k+'.jpg';pre.push(im)}let k=0;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{k=(k+1)%N;gv.src=pre[k].src},500)}

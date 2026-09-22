@@ -63,6 +63,14 @@ footer{border-top:4px solid var(--accent);padding-block:40px 28px;font-size:14px
 .fund{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;letter-spacing:.05em}
 @media (max-width:860px){.hg,.final{grid-template-columns:1fr}.hero .cardf,.final .cardf{max-width:320px}.rounds,.steps{grid-template-columns:1fr}.round .cardf{max-width:320px;margin-inline:auto}}
 @media (prefers-reduced-motion:reduce){.strip div{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+/* 兩張互動卡懸浮；預賽三張改靜態圖 */
+.hov{position:relative;animation:hov 5.4s ease-in-out infinite;transform-origin:50% 100%}
+.hov:before{content:"";position:absolute;left:14%;right:14%;bottom:-6%;height:10%;border-radius:50%;background:radial-gradient(ellipse,#ffe20055,transparent 70%);filter:blur(8px);animation:glow 5.4s ease-in-out infinite}
+.hov .cardf{filter:drop-shadow(0 28px 30px #000c)}
+@keyframes hov{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-16px) rotate(1.2deg)}}
+@keyframes glow{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(.8);opacity:1}}
+.cardf.still{display:block;width:100%;height:auto;aspect-ratio:auto;border-radius:4%;box-shadow:0 18px 30px #000a}
+@media (prefers-reduced-motion:reduce){.hov,.hov:before{animation:none}}
 </style>
 
 </head><body><header class="hero"><div class="wrap hg">
@@ -72,7 +80,7 @@ footer{border-top:4px solid var(--accent);padding-block:40px 28px;font-size:14px
   <p class="lead">正式預賽出戰名單出爐。<br>恭喜入選的 <b>18 位熱血 DJ</b>，即將在台灣北中南三座城市，<br>角逐決賽年底台北大佳河濱公園主舞台入場券！</p>
   <div class="cta"><a class="btn" href="#rounds">看預賽名單</a><a class="btn ghost" href="https://www.instagram.com/mylanguagepracticebook/" target="_blank" rel="noopener">訊息總部 @mylanguagepracticebook</a></div>
  </div>
- <div><iframe class="cardf" title="總決賽主視覺卡" src="cards/final.html?capture=1"></iframe><span class="tip">滑動卡片看效果 · 點一下來翻面</span></div>
+ <div class="hov"><iframe class="cardf" title="總決賽主視覺卡" src="cards/final.html?capture=1"></iframe><span class="tip">滑動卡片看效果 · 點一下來翻面</span></div>
 </div></header>
 <div class="strip" aria-hidden="true"><div>10/22 台北 SOCIAL COMPANY ★ 10/23 台中 X CUBE ★ 10/24 高雄 COCCO &amp; CO. ★ 12/25 總決賽 台北大佳河濱公園 ★ 10/22 台北 SOCIAL COMPANY ★ 10/23 台中 X CUBE ★ 10/24 高雄 COCCO &amp; CO. ★ 12/25 總決賽 台北大佳河濱公園 ★ </div></div>
 
@@ -80,13 +88,13 @@ footer{border-top:4px solid var(--accent);padding-block:40px 28px;font-size:14px
  <span class="eyebrow">2026 預賽賽程</span><h2>三城預賽倒數，<em>只有六位選手</em>可以站上最終舞台！</h2>
  <div class="cd" id="cd" role="timer" aria-label="距離首場預賽"><span class="cdl">距離首場預賽 10/22 台北</span><b id="cdd">--</b><i>天</i><b id="cdh">--</b><i>時</i><b id="cdm">--</b><i>分</i><b id="cds">--</b><i>秒</i></div>
  <div class="rounds">
-  <article class="round"><iframe class="cardf" loading="lazy" title="台北預賽卡" src="cards/taipei.html?capture=1"></iframe>
+  <article class="round"><img class="cardf still" src="cards/th_taipei.webp" alt="台北預賽卡">
    <div class="date">10/22<small>（四）</small></div><h3>北區預賽 · 台北</h3><div class="venue">SOCIAL COMPANY</div>
    <ul class="lineup"><li>DJ BEEK</li><li>DJ LouisC</li><li>DJ Frantic</li><li>DJ QQBall</li><li>DJ Justin</li><li>DJ XUAN</li></ul></article>
-  <article class="round"><iframe class="cardf" loading="lazy" title="台中預賽卡" src="cards/taichung.html?capture=1"></iframe>
+  <article class="round"><img class="cardf still" src="cards/th_taichung.webp" alt="台中預賽卡">
    <div class="date">10/23<small>（五）</small></div><h3>中區預賽 · 台中</h3><div class="venue">X CUBE</div>
    <ul class="lineup"><li>DJ 11</li><li>DJ AGA</li><li>DJ Niebao</li><li>DJ BigJohn</li><li>DJ Roman</li><li>DJ SHEN</li></ul></article>
-  <article class="round"><iframe class="cardf" loading="lazy" title="高雄預賽卡" src="cards/kaohsiung.html?capture=1"></iframe>
+  <article class="round"><img class="cardf still" src="cards/th_kaohsiung.webp" alt="高雄預賽卡">
    <div class="date">10/24<small>（六）</small></div><h3>南區預賽 · 高雄</h3><div class="venue">COCCO &amp; CO.</div>
    <ul class="lineup"><li>DJ YU</li><li>DJ YEN</li><li>DJ MARO</li><li>DJ Ocean</li><li>DJ Gter</li><li>DJ BB</li></ul></article>
  </div>
@@ -103,7 +111,7 @@ footer{border-top:4px solid var(--accent);padding-block:40px 28px;font-size:14px
 </div></section>
 
 <section class="green" id="final"><div class="wrap final">
- <div><iframe class="cardf xmas" loading="lazy" title="國語作業簿 台北歡樂耶誕城 主視覺卡" src="cards/xmas.html?embed=1"></iframe><span class="tip">滑動卡片看效果 · 點一下來翻面</span></div>
+ <div class="hov"><iframe class="cardf xmas" loading="lazy" title="國語作業簿 台北歡樂耶誕城 主視覺卡" src="cards/xmas.html?embed=1"></iframe><span class="tip">滑動卡片看效果 · 點一下來翻面</span></div>
  <div><span class="eyebrow">DJ 大賽總決賽</span><div class="big" style="margin-top:18px">12/25<span>（五）</span></div>
   <p>＠ <b>台北大佳河濱公園</b><br>國語作業簿 2026 台北歡樂耶誕城</p><p class="s">三場預賽、六位晉級者，在耶誕城主舞台決定今年的冠軍。</p>
   <div class="cta"><a class="btn" id="xmasLink" href="https://hiphopkidzofficial.github.io/xmas-city-2026/" target="_blank" rel="noopener">國語作業簿台北歡樂耶誕城2026活動頁面</a></div></div>
