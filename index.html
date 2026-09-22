@@ -553,7 +553,7 @@ function onFull(){full=true;st.textContent='READY!';if(D.mode==='start'){btn.hid
         <div class="status one"><span id="saleat"></span></div>
         <div class="ev" aria-label="正式活動倒數"><div class="kicker evk">EVENT STARTS IN<small>正式活動倒數 12/25</small></div>
         <div class="clock" id="clockEv" role="timer" aria-live="off"><div class="unit dd"><div class="digits" data-u="d"><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div></div><div class="lbl">天<small>DAYS</small></div></div><div class="colon c0" aria-hidden="true"><i></i><i></i></div><div class="unit"><div class="digits" data-u="h"><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div></div><div class="lbl">時<small>HRS</small></div></div><div class="colon" aria-hidden="true"><i></i><i></i></div><div class="unit"><div class="digits" data-u="m"><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div></div><div class="lbl">分<small>MIN</small></div></div><div class="colon" aria-hidden="true"><i></i><i></i></div><div class="unit"><div class="digits" data-u="s"><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div><div class="d" data-v="0"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i><i class="g"></i></div></div><div class="lbl">秒<small>SEC</small></div></div></div>
-        <div class="status"><span id="evat">活動：12/25 (五) 00:00 開始</span><span class="bar2"><i id="bar"></i></span><span id="pct">0%</span></div>
+        <div class="status"><span id="evat">活動：12/25 (五) 14:30 入場</span><span class="bar2"><i id="bar"></i></span><span id="pct">0%</span></div>
         </div>
         <a class="buy wait" id="buy" href="https://www.indievox.com/activity/detail/26_iv0421171" target="_blank" rel="noopener">活動購票</a>
         <div class="tiers"><div class="tier hot"><b>PRE-SALE</b><span>9/28 12:00</span></div><div class="tier"><b>單日票</b><span>NT$1,100</span></div><div class="tier"><b>雙日票</b><span>NT$2,000</span></div></div>
@@ -1352,7 +1352,7 @@ window.RideWorld = function (cv, opts) {
   // ── 兩段式倒數：第一段倒數到「正式開賣」9/28 12:00（台北），開賣後自動切成倒數到活動 12/25 00:00 ──
   const qs = new URLSearchParams(location.search);
   const SALE_AT = new Date(qs.get('at') || '2026-09-28T12:00:00+08:00');      // 正式開賣（老闆確認）
-  const EVENT_AT = new Date(qs.get('event') || '2026-12-25T00:00:00+08:00');  // 活動開始
+  const EVENT_AT = new Date(qs.get('event') || '2026-12-25T14:30:00+08:00');  // 活動開放入場（售票頁：14:30 入場、15:00 開演；老闆 2026-09-22：每天 22:00 結束）
   const SALE_FROM = new Date('2026-09-12T00:00:00+08:00');                    // 第一段進度條起點：網頁上線日
   const fmtTW = (d) => d.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', weekday: 'short', hour12: false });
   const kicker = document.getElementById('kicker'), buy = document.getElementById('buy'), bar = document.getElementById('bar'), pct = document.getElementById('pct'), phaseEl = document.getElementById('phase'), saleatEl = document.getElementById('saleat');
@@ -1366,7 +1366,7 @@ window.RideWorld = function (cv, opts) {
   function setPhase(p) {
     if (p === phase) return; phase = p;
     if (p === 0) { phaseEl.textContent = '正式開賣倒數'; phaseEl.classList.remove('live'); saleatEl.textContent = '開賣：' + fmtTW(SALE_AT) + '（台北時間）'; setBuy(true, '活動購票'); kicker.innerHTML = 'PRE-SALE OPENS IN<small>正式開賣倒數</small>'; document.getElementById('mqSub').textContent = '預售票開賣倒數'; }
-    else if (p === 1) { phaseEl.textContent = '國語作業簿 台北歡樂耶誕城 2026'; phaseEl.classList.add('live'); saleatEl.textContent = '預售票販售中 · 活動：' + fmtTW(EVENT_AT) + ' 開始'; setBuy(false, '活動購票'); kicker.innerHTML = 'TICKETS ON SALE<small>倒數到活動開始</small>'; document.getElementById('mqSub').textContent = '預售票販售中 · 活動開始倒數'; }
+    else if (p === 1) { phaseEl.textContent = '國語作業簿 台北歡樂耶誕城 2026'; phaseEl.classList.add('live'); saleatEl.textContent = '預售票販售中 · 活動：' + fmtTW(EVENT_AT) + ' 入場'; setBuy(false, '活動購票'); kicker.innerHTML = 'TICKETS ON SALE<small>倒數到活動開始</small>'; document.getElementById('mqSub').textContent = '預售票販售中 · 活動開始倒數'; }
     else { phaseEl.textContent = '國語作業簿 台北歡樂耶誕城 2026 · 進行中'; phaseEl.classList.add('live'); saleatEl.textContent = '活動進行中 · 台北大佳河濱公園'; setBuy(false, '活動購票'); document.getElementById('mqSub').textContent = '活動進行中 · 台北大佳河濱公園'; }
   }
   function tick() {
